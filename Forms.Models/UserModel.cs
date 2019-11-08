@@ -25,7 +25,7 @@
         /// <summary>
         /// Gets or sets the mobile number.
         /// </summary>
-        public string Mobile { get; set; }
+        public string mobileNumber { get; set; }
 
     }
 }
