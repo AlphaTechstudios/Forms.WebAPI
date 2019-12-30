@@ -3,6 +3,7 @@ using Forms.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
+
 namespace Forms.WebAPI.Controllers
 {
     [Route("api/[controller]")]
@@ -32,6 +33,17 @@ namespace Forms.WebAPI.Controllers
         public long InserUser([FromBody] UserModel userModel)
         {
             return usersManager.InsertUser(userModel);
+        }
+
+        [HttpPost("login")]
+        public IActionResult Login([FromBody] LoginModel loginModel)
+        {
+            var user = usersManager.Login(loginModel);
+            if(user == null)
+            {
+                return BadRequest(new { message = "Login or password is incorrect" });
+            }
+            return Ok(user);
         }
     }
 }

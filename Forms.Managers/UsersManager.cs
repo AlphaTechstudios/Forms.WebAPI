@@ -3,6 +3,7 @@ using Forms.Managers.Interfaces;
 using Forms.Models;
 using Forms.Repositories.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Forms.Managers
 {
@@ -30,6 +31,17 @@ namespace Forms.Managers
             var modelId = usersRepository.Insert(userModel);
             this.UnitOfWork.Commit();
             return modelId;
+        }
+
+        public UserModel Login(LoginModel loginModel)
+        {
+            var user = usersRepository.Get(x => x.Email == loginModel.Email && x.Password == loginModel.Password).SingleOrDefault();
+
+            if(user != null)
+            {
+                return user.WithoutPassword();
+            }
+            return null;
         }
     }
 }
