@@ -27,5 +27,7 @@
         /// </summary>
         public string mobileNumber { get; set; }
 
+        public string Token { get; set; }
+
     }
 }
