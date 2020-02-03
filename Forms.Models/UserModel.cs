@@ -1,4 +1,6 @@
-﻿namespace Forms.Models
+﻿using Forms.Enums;
+
+namespace Forms.Models
 {
     public class UserModel: BaseModel
     {
@@ -28,6 +30,9 @@
         public string mobileNumber { get; set; }
 
         public string Token { get; set; }
+
+        public UserProfileEnum Profile { get; set; }
+
 
     }
 }
