@@ -11,5 +11,7 @@ namespace Forms.Managers.Interfaces
         IEnumerable<UserModel> GetUsers();
         long InsertUser(UserModel userModel);
         UserModel Login(LoginModel loginModel);
+        void UpdateUser(UserModel userModel);
+        void DeleteUser(int id);
     }
 }

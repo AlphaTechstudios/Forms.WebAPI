@@ -7,7 +7,7 @@ namespace Forms.Models
         /// <summary>
         /// Gets or sets the FirstName.
         /// </summary>
-        public string FristName { get; set; }
+        public string FirstName { get; set; }
 
         /// <summary>
         /// Gets or sets the LastName.

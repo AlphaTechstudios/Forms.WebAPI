@@ -33,7 +33,21 @@ namespace Forms.WebAPI.Controllers
             return usersManager.GetUserById(id);
         }
 
-        [HttpGet]
+        [HttpPut("UpdateUser")]
+        public IActionResult UpdateUser([FromBody]UserModel userModel)
+        {
+            usersManager.UpdateUser(userModel);
+            return Ok();
+        }
+
+        [HttpDelete("DeleteUser/{id}")]
+        public IActionResult DeleteUser(int id)
+        {
+            usersManager.DeleteUser(id);
+            return Ok();
+        }
+
+        [HttpGet("GetUsers")]
         public IEnumerable<UserModel> GetUsers()
         {
             return usersManager.GetUsers();

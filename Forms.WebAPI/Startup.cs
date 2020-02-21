@@ -75,6 +75,10 @@ namespace Forms.WebAPI
                 app.UseHsts();
             }
 
+            
+            app.UseAuthentication();
+
+
             app.UseHttpsRedirection();
             app.UseMvc();
             app.UseSwagger();

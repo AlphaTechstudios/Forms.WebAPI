@@ -16,6 +16,13 @@ namespace Forms.Managers
         {
             this.usersRepository = usersRepository;
         }
+
+        public void DeleteUser(int id)
+        {
+            usersRepository.Delete(id);
+            UnitOfWork.Commit();
+        }
+
         public UserModel GetUserById(int id)
         {
             return usersRepository.GetByID(id);
@@ -42,6 +49,14 @@ namespace Forms.Managers
                 return user.WithoutPassword();
             }
             return null;
+        }
+
+        public void UpdateUser(UserModel userModel)
+        {
+            var user = usersRepository.GetByID(userModel.Id);
+            userModel.Password = user.Password;
+            usersRepository.Update(userModel);
+            UnitOfWork.Commit();
         }
     }
 }
