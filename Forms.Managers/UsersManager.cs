@@ -55,6 +55,7 @@ namespace Forms.Managers
         {
             var user = usersRepository.GetByID(userModel.Id);
             userModel.Password = user.Password;
+            userModel.Email = user.Email;
             usersRepository.Update(userModel);
             UnitOfWork.Commit();
         }
